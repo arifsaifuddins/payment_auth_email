@@ -33,10 +33,10 @@ app.use(express.json())
 app.use(express.raw())
 
 // template engine
-app.use(expressEjsLayouts)
-app.set('view engine', 'ejs')
-app.set('/views', path.join(__dirname, '/views'))
-app.use('/public', express.static(path.join(__dirname, '/public')))
+// app.use(expressEjsLayouts)
+// app.set('view engine', 'ejs')
+// app.set('/views', path.join(__dirname, '/views'))
+// app.use('/public', express.static(path.join(__dirname, '/public')))
 
 // passport init
 app.use(passport.initialize())
@@ -47,10 +47,12 @@ app.use('/user', userRouters)
 app.use('/auth', socmedRouter)
 app.use('/payment', donateRouter)
 app.get('/', (_, res) => {
-  res.render('home', {
-    title: 'Home',
-    layout: './layouts/main'
-  })
+  // res.render('home', {
+  //   title: 'Home',
+  //   layout: './layouts/main'
+  // })
+
+  res.json({ msg: 'ok' })
 })
 
 // server
