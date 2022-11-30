@@ -46,13 +46,11 @@ app.use(passport.session())
 app.use('/user', userRouters)
 app.use('/auth', socmedRouter)
 app.use('/payment', donateRouter)
-app.use('/', (_, res) => {
-  return res
-    .status(200)
-    .json({
-      code: 200,
-      message: 'EMail Auth Payment'
-    })
+app.get('/', (_, res) => {
+  res.render('home', {
+    title: 'Home',
+    layout: './layouts/main'
+  })
 })
 
 // server
