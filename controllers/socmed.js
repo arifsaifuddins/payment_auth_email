@@ -47,10 +47,7 @@ export const socmedsAuth = async (req, res) => {
           res.redirect(process.env.MAIN_URL)
         })
       } else {
-        res.status(400).json({
-          message: 'Something was wrong, user exits!',
-          code: 400
-        })
+        res.redirect(process.env.MAIN_URL)
       }
 
     }).catch(() => {
